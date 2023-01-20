@@ -3,7 +3,8 @@ import { auth } from '../firebase'
 import { 
     createUserWithEmailAndPassword, signInWithEmailAndPassword, 
     signOut, 
-    onAuthStateChanged } from "firebase/auth"
+    onAuthStateChanged 
+} from "firebase/auth"
 
 const AuthContext = createContext()
 
@@ -30,10 +31,11 @@ export function AuthContextProvider({ children }) {
             unsubscribe()
         }
     })
+
     return (
-        <AuthContextProvider value={{ signUp, logIn, logOut, user }}>
+        <AuthContext.Provider value={{ signUp, logIn, logOut, user }}>
             {children}
-        </AuthContextProvider>
+        </AuthContext.Provider>
     )
 }
 
